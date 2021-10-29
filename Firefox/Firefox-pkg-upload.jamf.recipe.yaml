@@ -1,7 +1,7 @@
 Description: Downloads the latest version of Firefox and makes a pkg. Then, uploads the package to the Jamf Pro Server. 
 Identifier: com.github.djdelisser.jamf-recipes.jamf.Firefox-pkg-upload
 MinimumVersion: "2.3"
-ParentRecipe: com.github.autopkg.pkg.Firefox_EN
+ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.Firefox
 
 Input:
   CATEGORY: Productivity
