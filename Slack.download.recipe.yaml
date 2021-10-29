@@ -1,0 +1,11 @@
+Description: Downloads the current version of Slack and creates a package to upload to JAMF.
+Identifier: com.github.djdelisser.jamf-recipes.download.Slack
+MinimumVersion: "2.3"
+
+Input:
+  CATEGORY: Collaboration
+
+Process:
+  - Processor: URLDownloader
+    Arguments:
+      url: https://slack.com/ssb/download-osx
