@@ -8,3 +8,5 @@ Input:
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+      Arguments:
+        category_name: "%CATEGORY%"
