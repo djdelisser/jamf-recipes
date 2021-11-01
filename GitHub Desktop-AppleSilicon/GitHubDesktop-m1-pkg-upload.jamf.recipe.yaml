@@ -5,6 +5,7 @@ ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.GitHubDesktop-m1
 
 Input:
   CATEGORY: Dev & Engineering
+  JSS_INVENTORY_NAME: "%NAME%-M1.app"
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
