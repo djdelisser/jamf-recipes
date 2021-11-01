@@ -7,14 +7,14 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Creative Cloud Installer.</string>
 	<key>Identifier</key>
-	<string>com.github.djdelisser.jamf-recipes.download.CreativeCloudInstaller</string>
+	<string>com.github.djdelisser.jamf-recipes.download.AdobeCC</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Creative Cloud Installer</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.0.0</string>
+	<string>2.3</string>
 	<key>Process</key>
 	<array>
 		<dict>

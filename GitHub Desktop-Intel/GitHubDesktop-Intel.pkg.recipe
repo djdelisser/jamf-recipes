@@ -5,21 +5,26 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Install Parallels Desktop and creates a package.</string>
+	<string>Downloads the latest version of GitHub Desktop and creates a package.</string>
 	<key>Identifier</key>
-	<string>com.github.djdelisser.jamf-recipes.pkg.InstallParallelsDesktop</string>
+	<string>com.github.djdelisser.jamf-recipes.pkg.GitHubDesktop-intel</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Install Parallels Desktop</string>
+		<string>GitHub Desktop</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.0.0</string>
+	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.github.djdelisser.jamf-recipes.download.InstallParallelsDesktop</string>
+	<string>com.github.djdelisser.jamf-recipes.download.GitHubDesktop-intel</string>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/GitHub Desktop.app</string>
+			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
 		</dict>
