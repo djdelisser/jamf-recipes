@@ -12,8 +12,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>GitHub Desktop</string>
-		<key>CHIP</key>
-		<string>Intel</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
@@ -23,7 +21,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%-%CHIP%.zip</string>
+				<string>%NAME%.zip</string>
 				<key>url</key>
 				<string>https://desktop.githubusercontent.com/github-desktop/releases/2.9.4-24101633/GitHubDesktop-x64.zip</string>
 			</dict>
@@ -40,7 +38,7 @@
 				<key>archive_path</key>
 				<string>%pathname%</string>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%-%CHIP%</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
@@ -51,7 +49,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%-%CHIP%/GitHub Desktop.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/GitHub Desktop.app</string>
 				<key>requirement</key>
 				<string>identifier "com.github.GitHubClient" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VEKTX9H2N7</string>
 			</dict>
@@ -62,7 +60,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%-%CHIP%/GitHub Desktop.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/GitHub Desktop.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>

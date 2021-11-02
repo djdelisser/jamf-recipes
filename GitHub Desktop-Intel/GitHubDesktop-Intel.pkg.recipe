@@ -12,6 +12,8 @@
 	<dict>
 		<key>NAME</key>
 		<string>GitHub Desktop</string>
+		<key>CHIP</key>
+		<string>Intel</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
@@ -27,6 +29,8 @@
 			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
+			<key>pkgname</key>
+			<string>%NAME%-%version%-%CHIP%
 		</dict>
 	</array>
 </dict>
