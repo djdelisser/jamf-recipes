@@ -31,7 +31,7 @@
 			<string>AppPkgCreator</string>
 			<dict>
 				<key>pkgname</key>
-				<string>%NAME%-%version%-%CHIP%
+				<string>%NAME%-%version%-%CHIP%</string>
 			</dict>	
 		</dict>
 	</array>
