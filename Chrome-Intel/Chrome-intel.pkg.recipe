@@ -24,15 +24,13 @@
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>AppPkgCreator</string>
 			<key>Arguments</key>
 			<dict>
-				<key>pkgname</key>
-				<string>%NAME%-%version%-%CHIP%</string>
-				<key>version</key>
-				<string>%version%</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%-%CHIP%.pkg</string>
 			</dict>
+			<key>Processor</key>
+			<string>AppPkgCreator</string>
 		</dict>
 	</array>
 </dict>
