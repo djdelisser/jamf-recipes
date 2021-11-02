@@ -28,13 +28,10 @@
 			<string>AppPkgCreator</string>
 			<key>Arguments</key>
 			<dict>
-				<key>pkg_request<key>
-				<dict>
-					<key>pkgname</key>
-					<string>%NAME%-%version%-%CHIP%</string>
-					<key>version</key>
-					<string>%version%</string>
-				</dict>
+				<key>pkgname</key>
+				<string>%NAME%-%version%-%CHIP%</string>
+				<key>version</key>
+				<string>%version%</string>
 			</dict>
 		</dict>
 	</array>
