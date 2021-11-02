@@ -4,9 +4,7 @@
 <dict>
     <key>recipes</key>
     <array>
-        <string>AppCleaner-pkg-upload.jamf.recipe.yaml</string>
         <string>Asana-pkg-upload.jamf.recipe.yaml</string>
-        <string>AdobeCC-pkg-upload.jamf.recipe.yaml</string>
         <string>Atom-pkg-upload.jamf.recipe.yaml</string>
         <string>GoogleChrome-m1-pkg-upload.jamf.recipe.yaml</string>
         <string>GoogleChrome-intel-pkg-upload.jamf.recipe.yaml</string>
@@ -17,13 +15,10 @@
         <string>GitHubDesktop-m1-pkg-upload.jamf.recipe.yaml</string>
         <string>GitHubDesktop-intel-pkg-upload.jamf.recipe.yaml</string>
         <string>GoogleDrive-pkg-upload.jamf.recipe.yaml</string>
-        <string>Keybase-pkg-upload.jamf.recipe.yaml</string>
         <string>KiwiforGmail-pkg-upload.jamf.recipe.yaml</string>
-        <string>ParallelsDesktop-pkg-upload.jamf.recipe.yaml</string>
         <string>Postman-pkg-upload.jamf.recipe.yaml</string>
         <string>Slack-m1-pkg-upload.jamf.recipe.yaml</string>
         <string>Slack-intel-pkg-upload.jamf.recipe.yaml</string>
-        <string>Spotify-pkg-upload.jamf.recipe.yaml</string>
         <string>VyprVPN-pkg-upload.jamf.recipe.yaml</string>
         <string>zoom.us-pkg-upload.jamf.recipe.yaml</string>
     </array>
