@@ -12,8 +12,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>Slack</string>
-		<key>CHIP</key>
-		<string>M1</string>	
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>

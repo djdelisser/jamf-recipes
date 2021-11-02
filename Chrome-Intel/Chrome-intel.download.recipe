@@ -14,8 +14,6 @@
 		<string>Google Chrome</string>
 		<key>NAME</key>
 		<string>Chrome</string>
-		<key>CHIP</key>
-		<string>Intel</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
