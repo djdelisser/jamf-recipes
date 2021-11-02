@@ -11,7 +11,9 @@
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Slack-Intel</string>
+		<string>Slack</string>
+		<key>CHIP</key>
+		<string>Intel</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>

@@ -11,7 +11,9 @@
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Slack-m1</string>
+		<string>Slack</string>
+		<key>CHIP</key>
+		<string>M1</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
@@ -20,6 +22,11 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arugments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%-%CHIP%.pkg</string>
+			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
 		</dict>

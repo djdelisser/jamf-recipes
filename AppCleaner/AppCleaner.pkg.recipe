@@ -24,6 +24,8 @@
 			<dict>
 				<key>app_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/AppCleaner.app</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
