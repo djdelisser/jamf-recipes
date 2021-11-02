@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Docker and creates a package.</string>
 	<key>Identifier</key>
-	<string>com.github.djdelisser.jamf-recipes.pkg.Docke-m1r</string>
+	<string>com.github.djdelisser.jamf-recipes.pkg.Docker-m1</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
