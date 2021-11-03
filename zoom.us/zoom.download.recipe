@@ -9,7 +9,7 @@
         <key>Input</key>
         <dict>
             <key>NAME</key>
-            <string>Zoom Client for IT</string>
+            <string>ZoomIT</string>
             <key>DOWNLOAD_URL</key>
             <string>https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
         </dict>
