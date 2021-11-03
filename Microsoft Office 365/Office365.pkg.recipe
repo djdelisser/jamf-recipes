@@ -1,29 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="2.3">
-<dict>
-	<key>Description</key>
-	<string>Uses parent download recipe to download the latest unlicensed Microsoft Office 365 Suite installer package.</string>
-	<key>Identifier</key>
-	<string>com.github.djdelisser.jamf-recipes.pkg.Office365</string>
-	<key>Input</key>
-	<dict>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0.0</string>
-	<key>ParentRecipe</key>
-	<string>com.github.djdelisser.jamf-recipes.download.Office365</string>
-	<key>Process</key>
-	<array>
-        <dict>
-            <key>Processor</key>
-            <string>PkgCopier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>source_pkg</key>
-                <string>%pathname%</string>
-            </dict>
-        </dict>
-    </array>
-</dict>
-</plist>
+Description: Downloads the latest version of Microsoft's Office 365 Suite installer package and renames the package.
+Identifier: com.github.djdelisser.jamf-recipes.pkg.Office365
+ParentRecipe: com.github.djdelisser.jamf-recipes.download.Office365
+MinimumVersion: "2.3"
+
+Input:
+  NAME: Microsoft Office 365
+  PKG_NAME: MicrosoftOffice365Suite
+  VERSIONING_STRING: OneNote
+
+Process:
+  - Processor: FlatPkgUnpacker
+    Arguments:
+      destination_path: "%RECIPE_CACHE_DIR%/downloads/unpack"
+      flat_pkg_path: "%pathname%"
+
+  - Processor: FileFinder
+    Arguments:
+      pattern: "%RECIPE_CACHE_DIR%/downloads/unpack/*%VERSIONING_STRING%*.pkg"
+
+  - Processor: PkgPayloadUnpacker
+    Arguments:
+      destination_path: "%RECIPE_CACHE_DIR%/downloads/payload"
+      pkg_payload_path: "%found_filename%/Payload"
+
+  - Processor: Versioner
+    Arguments:
+      input_plist_path: "%RECIPE_CACHE_DIR%/downloads/payload/Microsoft %VERSIONING_STRING%.app/Contents/Info.plist"
+      plist_version_key: CFBundleVersion
+
+  - Processor: PkgCopier
+    Arguments:
+      pkg_path: "%RECIPE_CACHE_DIR%/%PKG_NAME%-%version%.pkg"
+      source_pkg: "%pathname%"
+
+  - Processor: PathDeleter
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/downloads/unpack"
+        - "%RECIPE_CACHE_DIR%/downloads/payload"
