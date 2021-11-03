@@ -1,60 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Description</key>
-    <string>Downloads the latest Microsoft Office 365 Suite SKU-less installer package.</string>
-    <key>Identifier</key>
-    <string>com.github.djdelisser.jamf-recipes.download.Office365</string>
-    <key>Input</key>
-    <dict>
-        <key>NAME</key>
-        <string>Microsoft Office 365 Suite</string>
-        <key>VENDOR</key>
-        <string>Microsoft</string>
-        <key>SOFTWARETITLE1</key>
-        <string>Office</string>
-        <key>SOFTWARETITLE2</key>
-        <string>Suite</string>
-        <key>ID</key>
-        <string>525133</string>
-        <key>DOWNLOAD_URL_BASE</key>
-        <string>https://go.microsoft.com/fwlink/?linkid=</string>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>1.0.0</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL_BASE%%ID%</string>
-                <key>filename</key>
-                <string>%VENDOR%_%SOFTWARETITLE1%_%SOFTWARETITLE2%_%version%.pkg</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_path</key>
-                <string>%pathname%</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Installer: Microsoft Corporation (UBF8T346G9)</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
-            </dict>
-        </dict>
-    </array>
-</dict>
-</plist>
+Description: |
+  Downloads the latest Microsoft Office 365 SKU-less installer package.
+  Override the PRODUCTID key to:
+  - 525133 for Americas
+  - 532572 for Europe
+  - 532577 for Asia
+  - 871743 for Office 2016
+  - 2009112 for Office365 Business Pro (includes Teams)
+Identifier: com.github.djdelisser.jamf-recipes.download.Office365
+MinimumVersion: "2.3"
+
+Input:
+  NAME: Microsoft Office Suite
+  DOWNLOADURL: https://go.microsoft.com/fwlink/?linkid=%PRODUCTID%
+  PKG_NAME: MicrosoftOffice365Suite
+  PRODUCTID: "525133"
+
+Process:
+  - Processor: URLDownloader
+    Arguments:
+      filename: "%PKG_NAME%.pkg"
+      url: "%DOWNLOADURL%"
+
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      expected_authority_names:
+        - "Developer ID Installer: Microsoft Corporation (UBF8T346G9)"
+        - Developer ID Certification Authority
+        - Apple Root CA
+      input_path: "%pathname%"
+
+  - Processor: EndOfCheckPhase
