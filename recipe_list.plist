@@ -20,7 +20,7 @@
         <string>Slack-m1-pkg-upload.jamf.recipe.yaml</string>
         <string>Slack-intel-pkg-upload.jamf.recipe.yaml</string>
         <string>VyprVPN-pkg-upload.jamf.recipe.yaml</string>
-        <string>zoom.us-pkg-upload.jamf.recipe.yaml</string>
+        <string>zoom-pkg-upload.jamf.recipe.yaml</string>
         <string>AdobeCreativeCloud-AppleSilicon-pkg-upload.jamf.recipe.yaml</string>
         <string>AdobeCreativeCloud-Intel-pkg-upload.jamf.recipe.yaml</string>
         <string>AutoUpdate-pkg-upload.jamf.recipe.yaml</string>
@@ -31,7 +31,6 @@
         <string>RemoteDesktop-pkg-upload.jamf.recipe.yaml</string>
         <string>Spotify-pkg-upload.jamf.recipe.yaml</string>
         <string>vscode-pkg-upload.jamf.recipe.yaml</string>
-        <string>zoom.us-pkg-upload.jamf.recipe.yaml</string>
     </array>
 </dict>
 </plist>
