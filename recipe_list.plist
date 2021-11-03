@@ -28,9 +28,12 @@
         <string>Word-pkg-upload.jamf.recipe.yaml</string>
         <string>Powerpoint-pkg-upload.jamf.recipe.yaml</string>
         <string>Office365-pkg-upload.jamf.recipe.yaml</string>
+        <string>Outlook-pkg-upload.jamf.recipe.yaml</string>
         <string>RemoteDesktop-pkg-upload.jamf.recipe.yaml</string>
         <string>Spotify-pkg-upload.jamf.recipe.yaml</string>
         <string>vscode-pkg-upload.jamf.recipe.yaml</string>
+        <string>1Password-pkg-upload.jamf.recipe.yaml</string>
+        <string>CloudApp-pkg-upload.jamf.recipe.yaml</string>
     </array>
 </dict>
 </plist>
