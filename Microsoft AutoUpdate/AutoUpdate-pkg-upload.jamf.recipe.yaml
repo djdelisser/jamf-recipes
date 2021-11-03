@@ -1,0 +1,12 @@
+Description: Downloads the latest version and makes a pkg. Then, uploads the package to the Jamf Pro Server
+Identifier: com.github.djdelisser.jamf-recipes.jamf.AutoUpdate-pkg-upload
+MinimumVersion: "2.3"
+ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.AutoUpdate
+
+Input:
+  CATEGORY: Microsoft Office
+
+Process:   
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+      Arguments:
+        category_name: "%CATEGORY%"
