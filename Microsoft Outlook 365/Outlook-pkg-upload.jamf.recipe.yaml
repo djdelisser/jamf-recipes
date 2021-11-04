@@ -4,7 +4,7 @@ MinimumVersion: "2.3"
 ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.Outlook
 
 Input:
-  CATEGORY: Microsoft Office
+  CATEGORY: Email Clients
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader

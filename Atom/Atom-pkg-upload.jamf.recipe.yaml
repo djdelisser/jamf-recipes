@@ -4,7 +4,7 @@ MinimumVersion: "2.3"
 ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.Atom
 
 Input:
-  CATEGORY: Dev & Engineering
+  CATEGORY: Code Editors
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader

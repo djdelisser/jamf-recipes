@@ -4,9 +4,31 @@ MinimumVersion: "2.3"
 ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.Spotify
 
 Input:
+  NAME: spotify
   CATEGORY: Digital Media
+  POLICY_CATEGORY: Testing
+  POLICY_NAME: "Testing"
+  POLICY_TEMPLATE: Policy-install-template.xml
+  GROUP_NAME: "Testing"
+  SELF_SERVICE_DISPLAY_NAME: "Testing Spotify"
+  SELF_SERVICE_ICON: "%NAME%.png"
+  INSTALL_BUTTON_TEXT: "Install"
+  REINSTALL_BUTTON_TEXT: "Reinstall"
+  SELF_SERVICE_DESCRIPTION: |
+    Placeholder to see if the information actually makes it to self service
+
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
       Arguments:
-        category_name: "%CATEGORY%"
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+      Arguments:
+      category_name: "%CATEGORY%"
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+      Arguments:
+      policy_template: "%POLICY_TEMPLATE%"
+      policy_name: "%POLICY_NAME%"
+      icon: "%SELF_SERVICE_ICON%"
+      
