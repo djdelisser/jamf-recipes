@@ -16,7 +16,6 @@ Process:
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
       Arguments:
-      slack_webhook_url: "https://hooks.slack.com/workflows/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"
       NAME: "%NAME"
       version: "%version%"
       pkg_category: "%CATEGORY%"
