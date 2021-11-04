@@ -5,6 +5,7 @@ ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.Spotify
 
 Input:
   CATEGORY: Digital Media
+  Name: Spotify
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
