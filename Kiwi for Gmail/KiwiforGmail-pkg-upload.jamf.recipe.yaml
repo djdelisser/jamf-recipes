@@ -10,7 +10,3 @@ Process:
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
-
-    - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
-      Arguments: 
-        category_name: "%CATEGORY%"
