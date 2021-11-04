@@ -8,11 +8,6 @@ Input:
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
-      Arguments:
-
-    - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
-      Arguments:
-      category_name: "%CATEGORY%"
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
       Arguments:
@@ -20,6 +15,4 @@ Process:
       version: "%version%"
       pkg_category: "%CATEGORY%"
       pkg_name: "%pkgname%"
-
-
       
