@@ -10,3 +10,8 @@ Process:
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
+      Arguments:
+        NAME: "%NAME%"
+        version: "%version%"
+        pkg_category: "%CATEGORY%"
+        pkg_name: "%NAME%-%version%.pkg"
