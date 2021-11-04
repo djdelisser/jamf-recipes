@@ -5,14 +5,13 @@ ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.Spotify
 
 Input:
   CATEGORY: Digital Media
-  NAME: Spotify
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
       Arguments:
-        NAME: "%NAME%"
+        NAME: Spotify
         version: "%version%"
         pkg_category: "%CATEGORY%"
         pkg_name: "%NAME%-%version%.pkg"
