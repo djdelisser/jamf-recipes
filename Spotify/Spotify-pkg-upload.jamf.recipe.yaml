@@ -11,8 +11,7 @@ Process:
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
       Arguments:
-        NAME: "%NAME"
+        NAME: "%NAME%"
         version: "%version%"
         pkg_category: "%CATEGORY%"
-        pkg_name: "%pkgname%"
-      
+        pkg_name: "%NAME%-%version%.pkg"
