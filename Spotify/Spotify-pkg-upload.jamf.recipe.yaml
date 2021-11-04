@@ -10,3 +10,6 @@ Process:
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
+      Arguments:
+        Name: "%NAME%"
+        
