@@ -5,9 +5,6 @@
 # Daily @ 8am EST
 # If new recipes are added, the recipe_list will need to be updated
 
-#Set Path for cron
-PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin
-
 ###Ensure ALL Repos are up to date
 autopkg repo-update all
 
