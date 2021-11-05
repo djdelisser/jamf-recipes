@@ -5,7 +5,7 @@ ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.KiwiforGmail
 
 Input:
   NAME: Kiwi for Gmail
-  CATEGORY: Productivity
+  CATEGORY: Email Clients
   GROUP_NAME: "%NAME%-testing-smartgroup"
   TESTING_GROUP_NAME: Testing
   GROUP_TEMPLATE: SmartGroup-create-template.xml
