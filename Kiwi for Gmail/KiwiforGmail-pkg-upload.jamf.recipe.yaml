@@ -5,7 +5,6 @@ ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.KiwiforGmail
 
 Input:
   NAME: Kiwi for Gmail
-  CATEGORY: Email Clients
   GROUP_NAME: "%NAME%-testing-smartgroup"
   TESTING_GROUP_NAME: Testing
   GROUP_TEMPLATE: SmartGroup-create-template.xml
@@ -25,10 +24,6 @@ Process:
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
 
-    - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
-      Arguments:
-        category_name: "%CATEGORY%"
-
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
       Arguments:
         computergroup_template: "%GROUP_TEMPLATE%"
@@ -37,5 +32,6 @@ Process:
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
       Arguments:
         policy_template: "%POLICY_TEMPLATE%"
+        policy_category: "%POLICY_CATEGORY%"
         policy_name: "%POLICY_NAME%"
         icon: "%SELF_SERVICE_ICON%"

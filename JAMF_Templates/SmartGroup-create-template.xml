@@ -6,6 +6,7 @@
 		<criterion>
 			<name>Computer Group</name>
 			<priority>0</priority>
+            <andor>and</andor>
 			<search_type>member of</search_type>
 			<value>%TESTING_GROUP_NAME%</value>
 		</criterion>
