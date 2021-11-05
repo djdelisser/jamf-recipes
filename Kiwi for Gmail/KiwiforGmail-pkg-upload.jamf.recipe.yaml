@@ -14,10 +14,11 @@ Input:
   POLICY_RUN_COMMAND: "echo 'Installation of %NAME% complete'"
   SELF_SERVICE_DISPLAY_NAME: "Test Latest %NAME%"
   SELF_SERVICE_DESCRIPTION: |
-    "Test for Latest %NAME%, Version: %version%"
+    Test for Latest %NAME%, Version: %version%
   SELF_SERVICE_ICON: test.png
   INSTALL_BUTTON_TEXT: "Test %version%"
-  REINSTALL_BUTTON_TEXT: "Retest"
+  REINSTALL_BUTTON_TEXT: "Retest %version%"
+  replace_policy: "True"
 
 
 Process:   
