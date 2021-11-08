@@ -1,0 +1,47 @@
+Description: Downloads the latest version and makes a pkg. Then, uploads the package to the Jamf Pro Server
+#Description is just for Autopkg, logs, and the script. Doesn't upload this information to JAMF
+Identifier: com.github.djdelisser.jamf-recipes.jamf.<RecipeNameGoesHere>-pkg-upload
+#Example for Identifier: com.github.djdelisser.jamf-recipes.jamf.Asana-pkg-upload
+MinimumVersion: "2.3"
+#MinimumVersion is for JAMFUpload, certain versions don't accept yaml or don't have certain uploaders, etc. 2.3 is good to use
+ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.<RecipeNameGoesHere>
+#Example for Parent Recipe: com.github.djdelisser.jamf-recipes.pkg.Asana
+
+## NOTE: This template is to be used as an example for how appname-pkg-upload.jamf.recipe.yaml files are configured. 
+## The applications are uploaded to JAMF Pro and a Testing Policy is automatically created and scoped to the Testing machines to test each policy before attaching the policies
+## to production policies. None of the details under Input will be seen by the End-User once attached to the production policy. These details below are strictly for testing purposes.
+## When a new package has been updated in JAMF, a Slack notification will be sent to #it-notifications to let us know to test and then attach to the prod policy. 
+
+Input:
+  NAME: App Name #This will be used wherever you see %NAME%
+  GROUP_NAME: "%NAME%-testing-smartgroup" #This will be the Smart Group Name that the Test Devices are already assigned to
+  TESTING_GROUP_NAME: Testing #This is a pre-created Static Group, currently with both of DJ's machines scoped to it. 
+  GROUP_TEMPLATE: SmartGroup-create-template.xml #Don't need absolute path, JAMFUpload will find this. However, all templates lives in this folder. 
+  POLICY_CATEGORY: Testing #This category is helpful for Self Service, all policies will upload there for testing purposes. 
+  POLICY_TEMPLATE: Policy-install-template.xml #Don't need absolute path, JAMFUpload will find this. However, all templates lives in this folder.
+  POLICY_NAME: "Test Latest %NAME%" #Test name will always be this for packages uploaded
+  POLICY_RUN_COMMAND: "echo 'Installation of %NAME% complete'" #This needs to be filled out or will have an error. This simply just echo's this in the logs for JAMF, not on the end user device. 
+  SELF_SERVICE_DISPLAY_NAME: "Test Latest %NAME%" #Display Name for Self Service - Testing 
+  SELF_SERVICE_DESCRIPTION: | #This description is shown in Self Service when a user clicks on the application. 
+    Test for Latest %NAME%, Version: %version%
+  SELF_SERVICE_ICON: test.png #Using a generic image for all testing policies. This image lives in /Icons/
+  INSTALL_BUTTON_TEXT: "Test %version%" #This will display the version of the app you're about to test. 
+  REINSTALL_BUTTON_TEXT: "Retest %version%" #^^^
+  replace_policy: "True" #This set to true allows the policy to be recreated when a new version of the app is available to test. If false, it would fail. 
+
+
+Process:   
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader #JAMF Package Uploader sends the package to JAMF Pro if a package of the same name doesn't exist. 
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker #This sends the notification to Slack via Webhook if a new package is uplaoded. 
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader #This creates the computer group for testing. 
+      Arguments:
+        computergroup_template: "%GROUP_TEMPLATE%" #Uses the Template specified under Input
+        computergroup_name: "%GROUP_NAME%" #Uses the group naem specified under Input
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader #This creates the testing policy.
+      Arguments:
+        policy_template: "%POLICY_TEMPLATE%" #Uses the Policy Template specified under Input
+        policy_name: "%POLICY_NAME%" #Uses the Policy Name specified under Input
+        icon: "%SELF_SERVICE_ICON%" #Uses the Policy Icon specified under Input
