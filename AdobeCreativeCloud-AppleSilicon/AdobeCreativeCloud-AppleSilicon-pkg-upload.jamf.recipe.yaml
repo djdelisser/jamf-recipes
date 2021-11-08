@@ -4,9 +4,35 @@ MinimumVersion: "2.3"
 ParentRecipe: com.github.djdelisser.jamf-recipes.pkg.AdobeCreativeCloud-AppleSilicon
 
 Input:
-  CATEGORY: Adobe
+  NAME: Adobe Creative Cloud - Apple Silicon
+  GROUP_NAME: "%NAME%-testing-smartgroup"
+  TESTING_GROUP_NAME: Testing
+  GROUP_TEMPLATE: SmartGroup-create-template.xml
+  POLICY_CATEGORY: Testing
+  POLICY_TEMPLATE: Policy-install-template.xml
+  POLICY_NAME: "Test Latest %NAME%"
+  POLICY_RUN_COMMAND: "echo 'Installation of %NAME% complete'"
+  SELF_SERVICE_DISPLAY_NAME: "Test Latest %NAME%"
+  SELF_SERVICE_DESCRIPTION: |
+    Test for Latest %NAME%, Version: %version%
+  SELF_SERVICE_ICON: test.png
+  INSTALL_BUTTON_TEXT: "Test %version%"
+  REINSTALL_BUTTON_TEXT: "Retest %version%"
+  replace_policy: "True"
+
 
 Process:   
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
 
     - Processor: com.github.grahampugh.jamf-upload.processors/JamfUploaderSlacker
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+      Arguments:
+        computergroup_template: "%GROUP_TEMPLATE%"
+        computergroup_name: "%GROUP_NAME%"
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+      Arguments:
+        policy_template: "%POLICY_TEMPLATE%"
+        policy_name: "%POLICY_NAME%"
+        icon: "%SELF_SERVICE_ICON%"
